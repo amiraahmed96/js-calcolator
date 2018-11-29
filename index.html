@@ -1,0 +1,196 @@
+<html>
+<head>
+    <style>
+   .calc
+        {
+            background-color: black;
+            margin-top: 10%;
+            width: 26%;
+            border-radius: 6px;
+            height: 65%;
+            padding: 20px;
+        }
+        button
+        {
+            margin: 10px;
+            width: 60px;
+            height: 60px;
+            font-size: 25px;
+        }
+        input
+        {
+            width: 230px;
+            height: 60px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            direction: rtl;
+            font-size: 25px;
+            color: gray;
+        }
+    
+    </style>
+    
+    </head>
+    <body>
+    <center>
+        <div class="calc">
+        <div><button id="clean">C</button> <input type="text" placeholder="0" id="text"></div>
+        <div><button id="n7">7</button> <button id="n8">8</button> <button id="n9">9</button> <button id="add">+</button></div>
+        <div><button id="n4">4</button> <button id="n5">5</button> <button id="n6">6</button> <button id="sub">-</button></div>
+        <div><button id="n1">1</button> <button id="n2">2</button> <button id="n3">3</button> <button id="mult">*</button></div>
+        <div><button id="zero">0</button> <button id="dot">.</button> <button id="equal">=</button> <button id="div">/</button></div>
+        </div>
+        </center>
+    <script>
+        var n1 = document.getElementById("n1"),
+            n2 = document.getElementById("n2"),
+            n3 = document.getElementById("n3"),
+            n4 = document.getElementById("n4"),
+            n5 = document.getElementById("n5"),
+            n6 = document.getElementById("n6"),
+            n7 = document.getElementById("n7"),
+            n8 = document.getElementById("n8"),
+            n9 = document.getElementById("n9"),
+            clean = document.getElementById("clean"),
+            dot = document.getElementById("dot"),
+            add = document.getElementById("add"),
+            sub = document.getElementById("sub"),
+            mult = document.getElementById("mult"),
+            div = document.getElementById("div"),
+            equal = document.getElementById("equal"),
+            zero = document.getElementById("zero"),
+            text = document.getElementById("text");
+        var result;
+        
+        var plus = document.getElementById("add"),
+            minas = document.getElementById("sub"),
+            divide = document.getElementById("div"),
+            muliple = document.getElementById("mult"),
+            equal = document.getElementById("equal"),
+            opetator = "",
+            num1 = "",
+            num2 = "";
+        clean.onclick = function () {
+            text.value = "";
+            text.placeholder = "0";
+        }
+        
+        plus.onclick = function () {
+            opetator = "+";
+            if (text.value === "") {
+                num1 = text.placeholder;
+            } else {
+                num1 = text.value;
+            }
+            text.value = "";
+            text.placeholder = num1;
+        };
+        
+        muliple.onclick = function () {
+            opetator = "*";
+            if (text.value === "") {
+                num1 = text.placeholder;
+            } else {
+                num1 = text.value;
+            }
+            text.value = "";
+            text.placeholder = num1;
+        };
+        
+        minas.onclick = function () {
+            opetator = "-";
+            if (text.value === "") {
+                num1 = text.placeholder;
+            } else {
+                num1 = text.value;
+            }
+            text.value = "";
+            text.placeholder = num1;
+        };
+        
+        divide.onclick = function () {
+            opetator = "/";
+            if (text.value === "") {
+                num1 = text.placeholder;
+            } else {
+                num1 = text.value;
+            }
+           
+            text.value = "";
+            text.placeholder = num1;
+        };
+        
+        
+        function writenum (input) {
+            n1.onclick = function () {
+                input.value += n1.textContent;
+            };
+            n2.onclick = function () {
+                input.value += n2.textContent;
+            };
+            n3.onclick = function () {
+                input.value += n3.textContent;
+            };
+            n4.onclick = function () {
+                input.value += n4.textContent;
+            };
+            n5.onclick = function () {
+                input.value += n5.textContent;
+            };
+            n6.onclick = function () {
+                input.value += n6.textContent;
+            };
+            n7.onclick = function () {
+                input.value += n7.textContent;
+            };
+            n8.onclick = function () {
+                input.value += n8.textContent;
+            };
+            n9.onclick = function () {
+                input.value += n9.textContent;
+            };
+            zero.onclick = function () {
+                input.value += zero.textContent;
+            };
+            dot.onclick = function () {
+                input.value += dot.textContent;
+            };
+        }
+       
+        writenum(text);
+           
+        equal.onclick = function () {
+            num2 = text.value;
+            var number1 = parseInt(num1),
+                number2 = parseInt(num2);
+            switch (opetator) {
+                case "+" :
+                    result = number1 + number2;
+                    break;
+                case "-" :
+                     result = number1 - number2;
+                    break;
+                case "*" :
+                    result = number1 * number2;
+                    break;
+                case "/" :
+                    result = number1 / number2;
+                    break;
+            }
+            text.value = result;
+            text.placeholder = result;
+            text.value = "";
+           
+        }
+      
+        
+            
+        
+      
+        </script>
+    
+    
+    
+    
+    </body>
+</html>
